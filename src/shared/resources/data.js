@@ -29,4 +29,9 @@ const installPercentFees = {
   excelium: 20,
 };
 
+const contact = [
+ {"fullname":"John Doe","email":"john.doe@doe.com","phone":"123-123-1234","company_name":"Genesis Solution","project_name":"Week 3","project_desc":"Frontend","departement":"Commercial","message":"Thank you for your time", "file": null,}
+];
+
+
 module.exports = {agents,unitPrices,installPercentFees};

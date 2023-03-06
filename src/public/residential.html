@@ -24,6 +24,9 @@
 		<link href="assets/css/essentials.css" rel="stylesheet" type="text/css" />
 		<link href="assets/css/layout.css" rel="stylesheet" type="text/css" />
 
+<!-- AGENTS CSS -->
+<link href="assets/css/agent.css" rel="stylesheet" type="text/css" />
+
 		<!-- PAGE LEVEL SCRIPTS -->
 		<link href="assets/css/header-1.css" rel="stylesheet" type="text/css" />
 		<link href="assets/css/color_scheme/red.css" rel="stylesheet" type="text/css" id="color_scheme" />
@@ -375,6 +378,36 @@
 			</section>
 			<!-- /PARALLAX -->
 
+<!-- AGENTS -->
+<section id="agents" style="color: rgb(34, 151, 228); background-color: rgb(198, 204, 211); text-decoration: solid;">
+	<h1>We Got The Best Agents For You!</h1> 
+	<div>
+		<label for="sortselect">Sort by:</label>
+		<select id="sortselect" style="color: red; background-color: white; text-decoration: solid;">
+			<option value="select">--- Select ---</option>
+			<option value="first_name">First Name</option>
+			<option value="last_name">Last Name</option>
+			<option value="fee">Fee</option>
+			<option value="rating">Rating</option>
+		</select>
+		<label for="sortorder">Order:</label>
+		<select id="sortorder" style="color: red; background-color: white; text-decoration: solid;">
+			<option value="select">--- Select ---</option>
+			<option value="ascending">Ascending</option>
+			<option value="descending">Descending</option>
+		</select>
+		<label for="regionselect">Region:</label>
+		<select id="regionselect" style="color: red; background-color: white; text-decoration: solid;">
+			<option value="select">--- Select ---</option>
+			<option value="north">North</option>
+			<option value="south">South</option>
+			<option value="east">East</option>
+			<option value="west">West</option>
+		</select>
+	</div>
+	<div id="tableContainer" style="background-color: rgb(241, 175, 175); text-decoration: solid;"></div>
+</section>
+<!-- /AGENTS -->
 			<!-- TESTIMONIAL -->
 			<section id="rt-testimonial">
 				<div class="container" >
@@ -537,6 +570,9 @@
 		<!-- SCRIPT -->
 		<script src="assets/js/scripts.js"></script>
 
+		<!-- RESIDENTIAL FOR AGENTS -->
+        <script src="assets/js/residential.js"></script>
+
 		<!-- OPEN MODALS SCRIPT -->
 		<script type="text/javascript">
 			$("#subscribe-form").on("submit", function(e){
@@ -544,6 +580,8 @@
 				$("#subscribe-message").modal("show");
 				this.reset();
 			});
+
+
 		</script>
 
 	</body>

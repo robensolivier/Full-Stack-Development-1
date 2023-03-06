@@ -2,7 +2,14 @@ require('dotenv').config();
 const Express = require('express');
 const app = Express();
 const port = process.env.PORT || 3004;
+const cors = require ('cors');
 
+// cors allow
+app.use(cors({
+  origin: '*',
+  method: '*',
+  allowedHeaders: '*'
+}));
 
 const MongoManager = require('./src/shared/db/mongodb/mongo-manager')
 const MiddleWare = require('./src/shared/middleware/base-middleware');

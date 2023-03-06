@@ -1,0 +1,251 @@
+// const validator = require('validator');
+
+// const validateContactUs = (req, res, next) => {
+
+//     const email = req.body.email;
+//     const phone = req.body.phone;
+
+
+//     if (validator.isEmail(email)){
+//         console.log('Valid Email');
+
+//     } else if  (validator.isMobilePhone(phone)){
+//         console.log('Valid Phone Number');
+
+//     } else {
+//         console.log('Invalid email or phone number');
+//         res.status(400).json9({ Error: 'Invalid Email or Invalid Phone Number'});
+//         return;
+
+//     }
+//     next();
+// };
+
+
+// const validateType = (req, res, next) => {
+//     const buildingType = req.params.buildingType;
+
+//     if  (!validator.equals(buildingType, 'industrial') &&
+//         !validator.equals(buildingType, 'commercial') &&
+//         !validator.equals(buildingType, 'industrial')) {
+//         return res.status(400).send('Invalid Building Type')
+//         }
+//         next ();
+// };
+
+
+
+
+// const api_url = "http://localhost:3000/agents";
+// const css_url = "http://127.0.0.1:5500/src/public/assets/css/residential.css";
+// const smoothscroll_url = "http://127.0.0.1:5500/src/public/assets/plugins/smoothscroll.js";
+
+// // Fetch data from API
+// async function getApi(url) {
+//   try {
+//     const response = await fetch(url);
+//     if (!response.ok) {
+//       throw new Error(`HTTP error! status: ${response.status}`);
+//     }
+//     const data = await response.json();
+//     console.log(data);
+//     showData(data);
+//   } catch (error) {
+//     console.error(error);
+//   }
+// }
+
+// // Show data in table
+// function showData(data) {
+//   let sortDirection = 1;
+//   let sortField = "first_name";
+//   let regionFilter = null;
+//   const sortSelect = document.getElementById("sortselect");
+//   const sortOrder = document.getElementById("sortorder");
+//   const regionSelect = document.getElementById("regionselect");
+//   sortSelect.addEventListener("change", () => {
+//     sortField = sortSelect.value;
+//     showTable();
+//   });
+//   sortOrder.addEventListener("change", () => {
+//     sortDirection = sortOrder.value === "ascending" ? 1 : -1;
+//     showTable();
+//   });
+//   regionSelect.addEventListener("change", () => {
+//     regionFilter = regionSelect.value === "all" ? null : regionSelect.value;
+//     showTable();
+//   });
+//   function showTable() {
+//     let dataToShow = data;
+//     if (regionFilter) {
+//       dataToShow = data.filter((item) => item.region === regionFilter);
+//     }
+//     dataToShow.sort((a, b) => {
+//       if (a[sortField] < b[sortField]) return -1 * sortDirection;
+//       if (a[sortField] > b[sortField]) return 1 * sortDirection;
+//       return 0;
+//     });
+//     let table = `
+//       <table>
+//         <tr>
+//           <th>First Name</th>
+//           <th>Last Name</th>
+//           <th>Region</th>
+//           <th>Rating</th>
+//         </tr>
+//     `;
+//     for (let item of dataToShow) {
+//       table += `
+//         <tr>
+//           <td>${item.first_name}</td>
+//           <td>${item.last_name}</td>
+//           <td>${item.region}</td>
+//           <td>${item.rating}</td>
+//         </tr>
+//       `;
+//     }
+//     table += "</table>";
+//     document.getElementById("tableContainer").innerHTML = table;
+//   }
+//   const regions = [...new Set(data.map((item) => item.region))];
+//   let options = '<option value="all">All</option>';
+//   for (let region of regions) {
+//     options += `<option value="${region}">${region}</option>`;
+//   }
+//   document.getElementById("regionselect").innerHTML = options;
+// }
+
+// // Load CSS and Smoothscroll plugins
+// function loadPlugins() {
+//   const head = document.getElementsByTagName("head")[0];
+//   const css = document.createElement("link");
+//   css.rel = "stylesheet";
+//   css.href = css_url;
+//   head.appendChild(css);
+//   const smoothscroll = document.createElement("script");
+//   smoothscroll.src = smoothscroll_url;
+//   head.appendChild(smoothscroll);
+// }
+
+// // Call functions to load data and plugins
+// getApi(api_url);
+// loadPlugins();
+
+
+// ORIGINAL CODE BELOW !!!!!
+
+// const api_url = "http://localhost:3000/agents";
+
+// async function getapi(url) {
+//     const response = await fetch(url);
+//     var data = await response.json();
+//     console.log(data);
+//     show(data);
+//   }
+//   getapi(api_url);
+//   function show(data) {
+//     let sortDirection = 1;
+//     let sortField = 'first_name';
+//     let regionFilter = null;
+//     const sortselect = document.getElementById('sortselect');
+//     const sortorder = document.getElementById('sortorder');
+//     const regionselect = document.getElementById('regionselect');
+//     sortselect.addEventListener('change', () => {
+//       sortField = sortselect.value;
+//       showData();
+//     });
+//     sortorder.addEventListener('change', () => {
+//       sortDirection = sortorder.value === 'ascending' ? 1 : -1;
+//       showData();
+//     });
+//     regionselect.addEventListener('change', () => {
+//       regionFilter = regionselect.value === 'all' ? null : regionselect.value;
+//       showData();
+//     });
+//     function showData() {
+//       let dataToShow = data;
+//       if (regionFilter) {
+//         dataToShow = data.filter(item => item.region === regionFilter);
+//       }
+//       // sort data based on selected field and sort direction
+//       dataToShow.sort((a, b) => {
+//         if (a[sortField] < b[sortField]) return -1 * sortDirection;
+//         if (a[sortField] > b[sortField]) return 1 * sortDirection;
+//         return 0;
+//       });
+//       let tab = `
+//         <table>
+//           <tr>
+//             <th>First Name</th>
+//             <th>Last Name</th>
+//             <th>Region</th>
+//             <th>Rating</th>
+//           </tr>
+//       `;
+//       for (let r of dataToShow) {
+//         tab += `
+//           <tr>
+//             <td>${r.first_name} </td>
+//             <td>${r.last_name}</td>
+//             <td>${r.region}</td>
+//             <td>${r.rating}</td>
+//           </tr>
+//         `;
+//       }
+//       tab += "</table>";
+//       document.getElementById("tableContainer").innerHTML = tab;
+//     }
+//     const regions = Array.from(new Set(data.map(item => item.region)));
+//     let options = '<option value="all">All</option>';
+//     for (let region of regions) {
+//       options += `<option value="${region}">${region}</option>`;
+//     }
+//     document.getElementById("regionselect").innerHTML = options;
+//   }
+
+
+// test('status', () => {
+    //     // test function code here
+    //   }, 5000);
+
+
+
+
+    //  test Hello World
+describe('HealthController',()=>{
+  afterEach(() => {
+    sinon.restore();
+  });
+  describe('#helloWorld()',()=>{
+    it('respond with Hello World',(done)=>{
+      sinon.stub(ResponseUtil,'respondOk').callsFake((res,data,message)=>{
+        chai.assert.equal(message,'Hello World');
+        done();
+      });
+      
+      void HealthController.helloWorld();
+    });
+  });
+// Test Status
+  describe('#status()',()=>{
+    it('respond with status',(done)=>{
+      sinon.stub(ResponseUtil,'respondOk').callsFake((res,data,message)=>{
+        chai.assert.equal(message,'Status');
+        done();
+      });
+      
+      void HealthController.status();
+    });
+  });
+// Test Error
+  describe('#error()',()=>{
+    it('respond with error',(done)=>{
+      sinon.stub(ResponseUtil,'respondOk').callsFake((res,data,message)=>{
+        chai.assert.equal(message,'Error');
+        done();
+      });
+      
+      void HealthController.error();
+    });
+  });
+});

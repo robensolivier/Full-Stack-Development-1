@@ -1,6 +1,7 @@
 require('dotenv').config();
 const Express = require('express');
 const app = Express();
+const  validator = require('validator');
 
 const adminRoutes = [
   '/email-list',
@@ -39,4 +40,28 @@ const checkAuthToken = (req,res,next) => {
   next();
 };
 
-module.exports = {registerBaseMiddleWare};
+// Validate Contact Form
+
+const validateContact = (res, req, next) => {
+    // const email = req.body.email;
+    // const phone = req.body.phone;
+    console.log('req',req)
+    if (req) {
+      console.log('req.body',req.body)
+    }
+    // console.log(req)
+    // const { body: {email, phone} } = req;
+    // if (email && !validator.isEmail(email)) {
+    //     return console.log ('Invalid email address');
+       
+    // }
+
+    // if (phone && !validator.isMobilePhone(phone, 'en-us')) {
+    //   return console.log ('Invalid Phone Number');
+    
+    // }
+
+    next();
+  };
+
+module.exports = {registerBaseMiddleWare, validateContact};

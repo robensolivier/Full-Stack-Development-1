@@ -1,35 +1,26 @@
 const mongoose = require('mongoose')
-const Schema =  mongoose.Schema
 
 const ContactUsSchema = new mongoose.Schema({
     fullname: {
         type: String,
-        required: true
-       
+        required: true  
     },
     email: { 
         type: String,
         required: true,
-    },
-        
-       
+    },   
    phone: {
         type: String,
-        required: true
-        
+        required: true    
     },
     company_name: {
         type: String,
         required: true,
-
     },
-     
     project_name: {
         type: String,
-        required: true,
-       
+        required: true, 
     },
-
     project_desc: {
         type: String,
         required: true,
@@ -44,12 +35,11 @@ const ContactUsSchema = new mongoose.Schema({
         },
        file: {
             type: String,
-            required: true,
+            required: false,
         },     
-
-
-
 }, { timestamps: true })
+// }, { timestamps: true }, {collection:'contactUs'})
+
 
 
 
